@@ -14,13 +14,14 @@ screen.fill('white')
 clock = pygame.time.Clock()
 font = pygame.font.SysFont("Arial", WINDOW_WIDTH // BUTTONS_PER_STRING)
 
-colors = ['grey', 'black', 'red', 'green']
+colors = ['grey', 'black', 'red', 'green', 'purple']
 
 color_to_char = {
     colors[0]: '-',
     colors[1]: 'X',
     colors[2]: 's',
-    colors[3]: 'f'
+    colors[3]: 'f',
+    colors[4]: 'W'
 }
 
 
@@ -51,10 +52,10 @@ class Button:
         if text == 'W':
             self.change_status(bg='purple')
 
-        self.surface.blit(self.font.render('', False, pygame.Color("White")),
+        self.surface.blit(self.font.render('', False, pygame.Color("Black")),
                           (0, 0))
 
-        text = self.font.render(text, False, pygame.Color("White"))
+        text = self.font.render(text, False, pygame.Color("Black"))
         self.surface.blit(text, (0, 0))
 
     def show(self):
@@ -72,7 +73,7 @@ class Button:
                     print(x, y)
                     color_index = colors.index(self.bg)
                     color_index += 1
-                    if color_index == len(colors):  # the last color
+                    if color_index == len(colors) - 1:  # the last color
                         color_index = 0
                     self.change_status(bg=colors[color_index])
 
