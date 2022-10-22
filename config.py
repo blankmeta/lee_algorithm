@@ -1,7 +1,12 @@
-buttons_per_string = 5
-buttons_per_column = 5
+from pprint import pprint
+
+BUTTONS_PER_STRING = 5
+BUTTONS_PER_COLUMN = 5
+
+
 
 if __name__ == '__main__':
-    array = [[1 for str_bt in range(buttons_per_string)]
+    array = [[str_bt for str_bt in range(buttons_per_string)]
              for cl_bt in range(buttons_per_column)]
-    print(array)
+    pprint(array)
+    print(array[0][2])
